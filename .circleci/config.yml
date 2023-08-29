@@ -7,4 +7,4 @@ jobs:
       resource_class: windows.medium
       shell: powershell.exe -ExecutionPolicy Bypass
     steps:
-      - run: Write-Host 'Hello, Windows'
+      - run: choco install ngrok -y
